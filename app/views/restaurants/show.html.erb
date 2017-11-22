@@ -1,8 +1,14 @@
-<h4><%= @restaurant.name %></h4>
-<p><%= @restaurant.address %></p>
-<% @restaurant.reviews.each do |review| %>
-  <p><%= review.content  %></p>
-  <p><%= review.rating  %></p>
-<% end %>
-<%= link_to "Add a new review", new_restaurant_review_path(@restaurant) %>
-<%= link_to "Back to home", root_path %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= "#{rand(23)}.jpeg" %>);">
+  <div class="banner-content">
+    <h1><%= @restaurant.name %></h1>
+    <p><%= @restaurant.address %></p>
+    <div class="container text-left">
+      <h4>Latest reviews :</h4>
+      <% @restaurant.reviews.each do |review| %>
+        <p><%= review.content  %>. Note : <%= review.rating  %> / 5</p>
+      <% end %>
+    </div>
+    <%= link_to "Add a new review", new_restaurant_review_path(@restaurant), class: "btn btn-primary btn-lg" %>
+  </div>
+</div>
+

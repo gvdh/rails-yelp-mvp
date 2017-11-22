@@ -7,6 +7,9 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    the_average = []
+    @restaurants.each { |restaurant| restaurant.reviews.each { |review| the_average << review.rating }}
+    @average = the_average.inject{ |sum, el| sum + el }.to_f / the_average.size
   end
 
   def new

@@ -1,5 +1,16 @@
-<% @reviews.each do |review| %>
-  <%= review.rating %>
-  <%= review.restaurant.name %>
-  <%= link_to "See more about this camel !", review.restaurant %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @reviews.each do |review| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= "#{rand(23)}.jpeg" %>);">
+        <div class="card-description">
+          <h2><%= review.rating %></h2>
+          <p><%= review.restaurant.name %></p>
+        </div>
+        <img class="card-user" src="<%= "#{rand(24..33)}.jpeg" %>">
+        <%= link_to "", review.restaurant, class: "card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

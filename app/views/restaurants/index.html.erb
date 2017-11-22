@@ -1,7 +1,18 @@
-<%= link_to "New", new_restaurant_path %>
-
-<% @restaurants.each do |restaurant| %>
-  <h2><%= restaurant.name %></h2>
-  <p><%= restaurant.address %></p>
-  <%= link_to "Show", restaurant %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= "#{rand(23)}.jpeg" %>);">
+        <div id="star"><img  width= "40px", height= "40px", src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/star-icon.png"></div>
+        <div id="average"><%= @average.round(1) %></div>
+        <div class="card-description">
+          <h2><%= restaurant.name %></h2>
+          <p><%= restaurant.address %></p>
+        </div>
+        <img class="card-user" src="<%= "#{rand(24..33)}.jpeg" %>">
+        <%= link_to "", restaurant, class: "card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
