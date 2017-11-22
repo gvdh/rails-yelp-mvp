@@ -1,6 +1,9 @@
 class RestaurantsController < ApplicationController
 
   before_action :set_restaurant, only: [:show]
+  def top
+     @reviews = Review.order(rating: :desc).limit(5)
+  end
 
   def index
     @restaurants = Restaurant.all
